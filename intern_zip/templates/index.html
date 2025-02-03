@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>빅테크 채용 공고 리스트</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/0c69fdf2c0.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <script defer>
+      const companies = ["Naver", "Kakao", "LINE", "Woowa", "Daangn", "Toss"];
+
+      // 📊 회사별 공고 개수 가져오기
+      async function fetchJobCounts() {
+        const response = await fetch("/api/jobs/count");
+        const counts = await response.json();
+
+        const countList = document.getElementById("count-list");
+        countList.innerHTML = ""; // 기존 목록 초기화
+
+        companies.forEach((company) => {
+          const count = counts[company] || 0;
+          const badgeClass = count === 0 ? "bg-danger" : "bg-primary"; // 0개면 빨간색, 아니면 파란색
+
+          const listItem = document.createElement("li");
+          listItem.classList.add(
+            "list-group-item",
+            "d-flex",
+            "justify-content-between",
+            "align-items-center"
+          );
+          listItem.innerHTML = `<strong>${company}</strong> <span class="badge ${badgeClass} rounded-pill">${count}개</span>`;
+          countList.appendChild(listItem);
+        });
+      }
+
+      // ⏳ 마지막 크롤링 시간 가져오기
+      async function fetchLastCrawlTime() {
+        const response = await fetch("/api/last-crawl");
+        const data = await response.json();
+        document.getElementById("last-crawl-time").textContent =
+          data.last_crawl || "불러오는 중...";
+      }
+
+      // 🔍 채용 공고 가져오기
+      async function fetchJobs() {
+        const company = document.getElementById("company").value;
+        const url = company === "all" ? "/api/jobs" : `/api/jobs/${company}`;
+
+        const response = await fetch(url);
+        const jobs = await response.json();
+
+        const jobList = document.getElementById("job-list");
+        jobList.innerHTML = ""; // 기존 목록 초기화
+
+        if (jobs.length === 0) {
+          jobList.innerHTML = `<li class="list-group-item text-danger">⚠️ 해당 회사의 공고가 없습니다.</li>`;
+          return;
+        }
+
+        jobs.forEach((job) => {
+          const listItem = document.createElement("li");
+          listItem.classList.add("list-group-item");
+          listItem.innerHTML = `<a href="${job.notice_url}" target="_blank" class="text-decoration-none">${job.title} (${job.company})</a> - <span class="text-muted">${job.period}</span>`;
+          jobList.appendChild(listItem);
+        });
+      }
+
+      // ✅ 초기 데이터 불러오기
+      fetchJobCounts();
+      fetchLastCrawlTime();
+    </script>
+  </head>
+  <body class="bg-light">
+    <div class="container py-4">
+      <h1 class="text-center mb-4">📢 빅테크 개발자 인턴 채용 공고 리스트</h1>
+
+      <div class="callout callout-warning">
+        <h5><i class="fa-solid fa-note-sticky"></i> Notice</h5>
+        <p>매일 오전 8시에 공고를 크롤링해옵니다.</p>
+      </div>
+
+      <!-- 🔹 회사별 공고 개수 (카드 스타일 적용) -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">📊 현재 공고 개수</h5>
+          <ul id="count-list" class="list-group list-group-flush">
+            <li class="list-group-item">불러오는 중...</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 🔹 마지막 크롤링 시간 표시 -->
+      <div class="text-center mb-4">
+        <h6>
+          📅 마지막 크롤링 시간:
+          <span id="last-crawl-time">불러오는 중...</span>
+        </h6>
+      </div>
+
+      <!-- 🔹 검색 영역 -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title text-center">🔍 채용 공고 검색</h5>
+          <div class="flex-column align-items-center">
+            <div class="mb-3 w-100" style="max-width: 300px">
+              <select id="company" class="form-select">
+                <option value="all">전체</option>
+                <option value="Naver">Naver</option>
+                <option value="Kakao">Kakao</option>
+                <option value="LINE">LINE</option>
+                <option value="Woowa">배달의민족(우아한형제들)</option>
+                <option value="Daangn">Daangn</option>
+                <option value="Toss">Toss</option>
+              </select>
+            </div>
+            <div class="w-100" style="max-width: 300px">
+              <button class="btn btn-primary w-100" onclick="fetchJobs()">
+                🔍 검색
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔹 공고 리스트 -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">📋 공고 리스트</h5>
+          <ul id="job-list" class="list-group"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
