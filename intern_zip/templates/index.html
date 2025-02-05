@@ -21,6 +21,67 @@
       href="{{ url_for('static', filename='styles.css') }}"
     />
 
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.3rem; /* 모바일에서 h3 크기 */
+        }
+      }
+
+      select,
+      button {
+        font-size: 16px;
+        margin: 10px;
+        padding: 5px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+
+      .callout {
+        padding: 1rem;
+        margin: 1rem 0;
+        border-left: 5px solid #007bff; /* 기본 파란색 */
+        border-radius: 5px;
+        background-color: #cacaca;
+      }
+
+      /* Callout 색상 */
+      .callout-primary {
+        border-left-color: #007bff;
+      } /* 파랑 */
+      .callout-success {
+        border-left-color: #28a745;
+      } /* 초록 */
+      .callout-warning {
+        border-left-color: #ffc107;
+      } /* 노랑 */
+      .callout-danger {
+        border-left-color: #dc3545;
+      } /* 빨강 */
+    </style>
+
     <script defer>
       const companies = ["Naver", "Kakao", "LINE", "Woowa", "Daangn", "Toss"];
 
