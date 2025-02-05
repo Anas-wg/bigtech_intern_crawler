@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template,send_from_directory
 from collections import defaultdict
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -20,6 +20,9 @@ IP = os.environ.get('AWSIP')
 DB_PW = os.environ.get("DB_PW")
 
 app = Flask(__name__, static_folder="/home/ubuntu/intern_crawler/intern_zip/static")
+@app.route("/static/<path:filename>")
+def static_files(filename):
+    return send_from_directory("/home/ubuntu/intern_crawler/intern_zip/static", filename)
 
 # 🔥 MongoDB 설정
 # client = MongoClient('localhost', 27017) #27017번 포트
