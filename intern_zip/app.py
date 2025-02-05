@@ -12,12 +12,18 @@ from crawlers.woowa_crawler import WoowaCrawler
 from crawlers.daangn_crawler import DaangnCrawler
 from crawlers.toss_crawler import TossCrawler
 from insert_to_mongo import insert_to_mongo
+from dotenv import load_dotenv
+load_dotenv()
+
+IP = os.environ.get('AWSIP')
+
+DB_PW = os.environ.get("DB_PW")
 
 app = Flask(__name__)
 
 # 🔥 MongoDB 설정
 # client = MongoClient('localhost', 27017) #27017번 포트
-client = MongoClient('mongodb://test:test@3.36.132.240/?authSource=admin', 27017)
+client = MongoClient("mongodb://admin:{DB_PW}@{IP}", 27017)
 db = client["job_scraper"]
 meta_collection = db["meta"]  # ✅ 같은 job_scraper DB 안에서 meta 컬렉션 사용
 
