@@ -1,0 +1,27 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main # 🚀 main 브랜치에 push될 때 실행
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/your-project-folder
+            git pull origin main
+            source myenv/bin/activate
+            pip install -r requirements.txt  # 📌 필요하면 패키지 업데이트
+            sudo systemctl restart flask  # 📌 Flask 서버 재시작
