@@ -19,7 +19,7 @@ IP = os.environ.get('AWSIP')
 
 DB_PW = os.environ.get("DB_PW")
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="/home/ubuntu/intern_crawler/intern_zip/static")
 
 # 🔥 MongoDB 설정
 # client = MongoClient('localhost', 27017) #27017번 포트
