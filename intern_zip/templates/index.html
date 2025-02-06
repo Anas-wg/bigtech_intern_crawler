@@ -65,6 +65,33 @@
         });
       }
 
+      // ⏳ 마지막 크롤링 시간 가져오기
+      async function fetchLastCrawlTime() {
+        const response = await fetch("/api/last-crawl");
+        const data = await response.json();
+
+        if (data.last_crawl) {
+          // UTC 시간을 Date 객체로 변환
+          const utcDate = new Date(data.last_crawl);
+
+          // 한국 시간(KST, UTC+9)으로 변환
+          const koreaTime = new Intl.DateTimeFormat("ko-KR", {
+            timeZone: "Asia/Seoul",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }).format(utcDate);
+
+          document.getElementById("last-crawl-time").textContent = koreaTime;
+        } else {
+          document.getElementById("last-crawl-time").textContent =
+            "불러오는 중...";
+        }
+      }
+
       // 🔍 채용 공고 가져오기
       async function fetchJobs() {
         const company = document.getElementById("company").value;
