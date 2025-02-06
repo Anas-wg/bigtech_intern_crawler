@@ -13,7 +13,7 @@ from crawlers.daangn_crawler import DaangnCrawler
 from crawlers.toss_crawler import TossCrawler
 from insert_to_mongo import insert_to_mongo
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 IP = os.environ.get('AWSIP')
 
