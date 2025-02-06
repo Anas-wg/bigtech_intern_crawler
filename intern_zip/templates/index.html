@@ -156,23 +156,19 @@
       <div class="card shadow-sm mb-4">
         <div class="card-body">
           <h5 class="card-title text-center">🔍 채용 공고 검색</h5>
-          <div class="flex-column align-items-center">
-            <div class="mb-3 w-100">
-              <select id="company" class="form-select">
-                <option value="all">전체</option>
-                <option value="Naver">네이버</option>
-                <option value="Kakao">카카오</option>
-                <option value="LINE">라인</option>
-                <option value="Woowa">우아한형제들(배달의민족)</option>
-                <option value="Daangn">당근</option>
-                <option value="Toss">토스</option>
-              </select>
-            </div>
-            <div class="w-100">
-              <button class="btn btn-primary w-100" onclick="fetchJobs()">
-                🔍 검색
-              </button>
-            </div>
+          <div class="d-flex align-items-center gap-2">
+            <select id="company" class="form-select flex-grow-1">
+              <option value="all">전체</option>
+              <option value="Naver">네이버</option>
+              <option value="Kakao">카카오</option>
+              <option value="LINE">라인</option>
+              <option value="Woowa">우아한형제들(배달의민족)</option>
+              <option value="Daangn">당근</option>
+              <option value="Toss">토스</option>
+            </select>
+            <button class="btn btn-primary" onclick="fetchJobs()">
+              🔍 검색
+            </button>
           </div>
         </div>
       </div>
