@@ -9,7 +9,7 @@ from .base_crawler import BaseCrawler
 
 class TossCrawler(BaseCrawler):
     def __init__(self):
-        super().__init__("https://toss.im/career/jobs?search=%EC%9D%B8%ED%84%B4%EC%8B%AD&category=Backend%2CFrontend%2CInfra%2CQA%2CFull%20Stack%2CApp%2CEngineering")
+        super().__init__("https://toss.im/career/jobs?employment_type=%EC%B4%88%EB%8B%A8%EA%B8%B0%EA%B3%84%EC%95%BD%EC%A7%81%2C%EB%8B%A8%EA%B8%B0%EA%B3%84%EC%95%BD%EC%A7%81%2C%EA%B3%84%EC%95%BD%EC%A7%81&category=Backend%2CFrontend%2CInfra%2CQA%2CFull%20Stack%2CApp%2CEngineering")
 
     def get_html_selenium(self, url):
         """ Selenium을 사용하여 JavaScript가 렌더링된 HTML을 가져오는 함수 """
