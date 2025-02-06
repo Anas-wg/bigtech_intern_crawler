@@ -22,7 +22,16 @@
     />
 
     <script defer>
-      const companies = ["Naver", "Kakao", "LINE", "Woowa", "Daangn", "Toss"];
+      const companyMappings = {
+        Naver: "네이버",
+        Kakao: "카카오",
+        LINE: "라인",
+        Woowa: "우아한형제들(배달의민족)",
+        Daangn: "당근",
+        Toss: "토스",
+      };
+
+      const companies = Object.keys(companyMappings);
 
       // 📊 회사별 공고 개수 가져오기
       async function fetchJobCounts() {
@@ -43,17 +52,9 @@
             "justify-content-between",
             "align-items-center"
           );
-          listItem.innerHTML = `<strong>${company}</strong> <span class="badge ${badgeClass} rounded-pill">${count}개</span>`;
+          listItem.innerHTML = `<strong>${companyMappings[company]}</strong> <span class="badge ${badgeClass} rounded-pill">${count}개</span>`;
           countList.appendChild(listItem);
         });
-      }
-
-      // ⏳ 마지막 크롤링 시간 가져오기
-      async function fetchLastCrawlTime() {
-        const response = await fetch("/api/last-crawl");
-        const data = await response.json();
-        document.getElementById("last-crawl-time").textContent =
-          data.last_crawl || "불러오는 중...";
       }
 
       // 🔍 채용 공고 가져오기
@@ -75,7 +76,11 @@
         jobs.forEach((job) => {
           const listItem = document.createElement("li");
           listItem.classList.add("list-group-item");
-          listItem.innerHTML = `<a href="${job.notice_url}" target="_blank" class="text-decoration-none">${job.title} (${job.company})</a> - <span class="text-muted">${job.period}</span>`;
+          listItem.innerHTML = `<a href="${
+            job.notice_url
+          }" target="_blank" class="text-decoration-none">${job.title} (${
+            companyMappings[job.company] || job.company
+          })</a> - <span class="text-muted">${job.period}</span>`;
           jobList.appendChild(listItem);
         });
       }
