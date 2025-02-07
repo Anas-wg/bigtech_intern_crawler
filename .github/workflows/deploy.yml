@@ -20,7 +20,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }} # GitHub Secrets에서 불러오기
           script: |
-            cd ~/your-project-folder
+            cd ~/intern_crawler
             git pull origin main
             source myenv/bin/activate
             pip install -r requirements.txt  # 📌 필요하면 패키지 업데이트
