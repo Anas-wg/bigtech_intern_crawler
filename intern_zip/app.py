@@ -13,7 +13,10 @@ from crawlers.daangn_crawler import DaangnCrawler
 from crawlers.toss_crawler import TossCrawler
 from insert_to_mongo import insert_to_mongo
 from dotenv import load_dotenv
+from pytz import timezone
+
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
+os.environ["TZ"] = "Asia/Seoul"
 
 IP = os.environ.get('AWSIP')
 
@@ -69,8 +72,12 @@ def scheduled_crawl():
     print(f"\n✅ 모든 공고 크롤링 & 저장 완료! ({len(total_jobs)}개)")
 
 # 🔥 스케줄러 실행 (Flask 실행 중에도 백그라운드에서 자동 크롤링)
+
+
+seoul_tz = timezone("Asia/Seoul")
+
 scheduler = BackgroundScheduler()
-scheduler.add_job(scheduled_crawl, "cron", hour=8, minute=0)  # 매일 오전 8시 실행
+scheduler.add_job(scheduled_crawl, "cron", hour=8, minute=0, timezone=seoul_tz)
 scheduler.start()
 
 @app.route("/")
