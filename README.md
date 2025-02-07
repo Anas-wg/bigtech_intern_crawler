@@ -10,8 +10,29 @@
 
 ### Tech Stacks
 
+<h4>FrontEnd</h4>
+<img src = "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"> <img src = "https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+
+<h4>BackEnd</h4>
+<img src = "https://img.shields.io/badge/amazonec2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white">
+<img src = "https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+<img src = "https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">
+<img src = "https://img.shields.io/badge/mongodb-47A248?style=for-the-badge&logo=mongodb&logoColor=white">
+
+<h4>CI&CD<h4>
+<img src = "https://img.shields.io/badge/githubactions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white">
+
+### 아키텍처
+
+<p align="center">
+ <img src = "https://velog.velcdn.com/images/false90/post/9850d2d5-9bd0-401b-a5ae-eb7980602952/image.png">
+</p>
+
 ### 주요 기능📦
 
+<p align="center">
+ <img src = "https://velog.velcdn.com/images/false90/post/c4d01a22-78f0-4400-aa29-6d2e2f085759/image.png">
+</p>
 ---
 
 #### ⭐️ 빅테크 기업별 공고 개수 확인
@@ -23,10 +44,6 @@
 #### ⭐️ 전체, 세부 공고 내용 확인
 
 - DropDown을 활용하여 전체 혹은 기업별 공고를 확인할 수 있습니다.
-
-### 아키텍처
-
-<!-- 아키텍쳐 이미지 -->
 
 ```
 📦intern_zip
