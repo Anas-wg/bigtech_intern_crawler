@@ -34,6 +34,7 @@ client = MongoClient(f"mongodb://admin:{DB_PW}@{IP}", 27017)
 print(client)
 db = client["job_scraper"]
 meta_collection = db["meta"]  # ✅ 같은 job_scraper DB 안에서 meta 컬렉션 사용
+daily_job_counts = db["daily_job_counts"]
 
 # 기본 회사 리스트 (공고가 없어도 0으로 표시되도록 설정)
 COMPANIES = ["Naver", "Kakao", "LINE", "Woowa", "Daangn", "Toss"]
@@ -42,6 +43,29 @@ def update_last_crawl_time():
     """ 크롤링 시간을 업데이트하는 함수 """
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     meta_collection.update_one({"type": "last_crawl"}, {"$set": {"timestamp": now}}, upsert=True)
+
+def save_daily_job_counts():
+    """매일 크롤링이 끝난 후, 각 회사별 공고 개수를 개별 문서로 저장"""
+    pipeline = [
+        {"$group": {"_id": "$company", "count": {"$sum": 1}}}
+    ]
+    counts = list(collection.aggregate(pipeline))
+
+    # 오늘 날짜
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    for company in COMPANIES:
+        count = next((entry["count"] for entry in counts if entry["_id"] == company), 0)
+
+        # 회사별로 개별 문서 저장 (날짜 + 회사 조합을 키로 사용)
+        daily_job_counts.update_one(
+            {"date": today, "company": company},
+            {"$set": {"count": count}},
+            upsert=True  # 기존 데이터가 없으면 새로 생성
+        )
+
+        print(f"📊 {today} - {company}: {count}개 저장 완료")
+
 
 def scheduled_crawl():
     """ 매일 아침 8시에 실행될 크롤링 작업 """
@@ -67,6 +91,8 @@ def scheduled_crawl():
         insert_to_mongo(name, jobs)
         total_jobs.extend(jobs)
 
+    # 매일매일 회사별 크롤링 개수 저장
+    save_daily_job_counts()
     # 크롤링 완료 후 마지막 실행 시간 저장
     update_last_crawl_time()
     print(f"\n✅ 모든 공고 크롤링 & 저장 완료! ({len(total_jobs)}개)")
