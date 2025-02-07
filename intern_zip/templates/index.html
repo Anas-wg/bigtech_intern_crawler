@@ -29,6 +29,20 @@
       href="{{ url_for('static', filename='styles.css') }}"
     />
 
+    <!-- Google Analytics Tracking Code -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-6JGGHCCMBB"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-6JGGHCCMBB");
+    </script>
+
     <script defer>
       const companyMappings = {
         Naver: "네이버",
